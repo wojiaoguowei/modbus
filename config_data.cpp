@@ -42,7 +42,8 @@ CDeviceData::~CDeviceData()
 
 CModbusClientData::CModbusClientData()
 {
-
+	m_uResponseTime = 1000;
+	m_bTcp = TCP_COMM;
 }
 
 CModbusClientData::~CModbusClientData()

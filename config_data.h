@@ -58,6 +58,8 @@ private:
 class CModbusClientData : public CBaseData
 {
 public:
+	enum Comm{TCP_COMM, UDP_COMM};
+public:
 	CModbusClientData();
 	~CModbusClientData();
 
@@ -80,6 +82,8 @@ public:
 
 public:
 	QString m_strNetPort;
+	quint16 m_uResponseTime;
+	bool m_bTcp;
 
 private:
 	QString m_strName;	//modbus客户端名称，唯一

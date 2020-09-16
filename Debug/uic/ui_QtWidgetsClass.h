@@ -36,6 +36,12 @@ public:
     QComboBox *comboBox;
     QLabel *label_2;
     QLineEdit *lineEdit;
+    QSpacerItem *horizontalSpacer_7;
+    QSpacerItem *horizontalSpacer_6;
+    QSpacerItem *horizontalSpacer_5;
+    QSpacerItem *horizontalSpacer_4;
+    QSpacerItem *horizontalSpacer_3;
+    QSpacerItem *horizontalSpacer_2;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label_3;
     QRadioButton *radioButton;
@@ -45,15 +51,17 @@ public:
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout_3;
     QPushButton *pushButton;
-    QSpacerItem *horizontalSpacer;
     QPushButton *pushButton_2;
+    QPushButton *pushButton_3;
+    QPushButton *pushButton_4;
+    QSpacerItem *horizontalSpacer;
     QTableWidget *tableWidget;
 
     void setupUi(QWidget *QtWidgetsClass)
     {
         if (QtWidgetsClass->objectName().isEmpty())
             QtWidgetsClass->setObjectName(QString::fromUtf8("QtWidgetsClass"));
-        QtWidgetsClass->resize(1266, 769);
+        QtWidgetsClass->resize(1013, 614);
         verticalLayout_2 = new QVBoxLayout(QtWidgetsClass);
         verticalLayout_2->setSpacing(6);
         verticalLayout_2->setContentsMargins(11, 11, 11, 11);
@@ -65,7 +73,7 @@ public:
         label->setObjectName(QString::fromUtf8("label"));
         QFont font;
         font.setFamily(QString::fromUtf8("\346\226\260\345\256\213\344\275\223"));
-        font.setPointSize(15);
+        font.setPointSize(9);
         label->setFont(font);
 
         horizontalLayout->addWidget(label);
@@ -76,7 +84,8 @@ public:
         comboBox->addItem(QString());
         comboBox->setObjectName(QString::fromUtf8("comboBox"));
         QFont font1;
-        font1.setPointSize(15);
+        font1.setFamily(QString::fromUtf8("\345\256\213\344\275\223"));
+        font1.setPointSize(9);
         comboBox->setFont(font1);
 
         horizontalLayout->addWidget(comboBox);
@@ -93,6 +102,30 @@ public:
 
         horizontalLayout->addWidget(lineEdit);
 
+        horizontalSpacer_7 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_7);
+
+        horizontalSpacer_6 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_6);
+
+        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_5);
+
+        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_4);
+
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_3);
+
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_2);
+
 
         verticalLayout_2->addLayout(horizontalLayout);
 
@@ -101,19 +134,25 @@ public:
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         label_3 = new QLabel(QtWidgetsClass);
         label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setFont(font1);
+        QFont font2;
+        font2.setFamily(QString::fromUtf8("Agency FB"));
+        font2.setPointSize(9);
+        label_3->setFont(font2);
 
         horizontalLayout_2->addWidget(label_3);
 
         radioButton = new QRadioButton(QtWidgetsClass);
         radioButton->setObjectName(QString::fromUtf8("radioButton"));
-        radioButton->setFont(font1);
+        QFont font3;
+        font3.setFamily(QString::fromUtf8("Times New Roman"));
+        font3.setPointSize(9);
+        radioButton->setFont(font3);
 
         horizontalLayout_2->addWidget(radioButton);
 
         radioButton_2 = new QRadioButton(QtWidgetsClass);
         radioButton_2->setObjectName(QString::fromUtf8("radioButton_2"));
-        radioButton_2->setFont(font1);
+        radioButton_2->setFont(font3);
 
         horizontalLayout_2->addWidget(radioButton_2);
 
@@ -134,30 +173,37 @@ public:
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
         pushButton = new QPushButton(groupBox);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        QFont font2;
-        font2.setFamily(QString::fromUtf8("Agency FB"));
-        font2.setPointSize(9);
         pushButton->setFont(font2);
 
         horizontalLayout_3->addWidget(pushButton);
-
-        horizontalSpacer = new QSpacerItem(978, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_3->addItem(horizontalSpacer);
 
         pushButton_2 = new QPushButton(groupBox);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
 
         horizontalLayout_3->addWidget(pushButton_2);
 
+        pushButton_3 = new QPushButton(groupBox);
+        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
+
+        horizontalLayout_3->addWidget(pushButton_3);
+
+        pushButton_4 = new QPushButton(groupBox);
+        pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
+
+        horizontalLayout_3->addWidget(pushButton_4);
+
+        horizontalSpacer = new QSpacerItem(978, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_3->addItem(horizontalSpacer);
+
 
         verticalLayout->addLayout(horizontalLayout_3);
 
         tableWidget = new QTableWidget(groupBox);
         tableWidget->setObjectName(QString::fromUtf8("tableWidget"));
-        QFont font3;
-        font3.setFamily(QString::fromUtf8("\345\256\213\344\275\223"));
-        tableWidget->setFont(font3);
+        QFont font4;
+        font4.setFamily(QString::fromUtf8("\345\256\213\344\275\223"));
+        tableWidget->setFont(font4);
 
         verticalLayout->addWidget(tableWidget);
 
@@ -189,6 +235,8 @@ public:
         groupBox->setTitle(QApplication::translate("QtWidgetsClass", "\350\256\276\345\244\207\350\256\276\347\275\256\357\274\232", nullptr));
         pushButton->setText(QApplication::translate("QtWidgetsClass", "\346\267\273\345\212\240", nullptr));
         pushButton_2->setText(QApplication::translate("QtWidgetsClass", "\345\210\240\351\231\244", nullptr));
+        pushButton_3->setText(QApplication::translate("QtWidgetsClass", "\347\241\256\345\256\232", nullptr));
+        pushButton_4->setText(QApplication::translate("QtWidgetsClass", "\345\217\226\346\266\210", nullptr));
     } // retranslateUi
 
 };

@@ -35,15 +35,16 @@ public:
     QLabel *label_6;
     QLabel *label_7;
     QHBoxLayout *horizontalLayout_2;
-    QSpacerItem *horizontalSpacer;
     QPushButton *pushButton;
+    QSpacerItem *horizontalSpacer;
+    QPushButton *pushButton_2;
     QTableWidget *tableWidget;
 
     void setupUi(QWidget *Channelsettings)
     {
         if (Channelsettings->objectName().isEmpty())
             Channelsettings->setObjectName(QString::fromUtf8("Channelsettings"));
-        Channelsettings->resize(1249, 662);
+        Channelsettings->resize(900, 469);
         verticalLayout_2 = new QVBoxLayout(Channelsettings);
         verticalLayout_2->setSpacing(6);
         verticalLayout_2->setContentsMargins(11, 11, 11, 11);
@@ -51,7 +52,8 @@ public:
         label = new QLabel(Channelsettings);
         label->setObjectName(QString::fromUtf8("label"));
         QFont font;
-        font.setPointSize(15);
+        font.setFamily(QString::fromUtf8("\345\256\213\344\275\223"));
+        font.setPointSize(9);
         label->setFont(font);
 
         verticalLayout_2->addWidget(label);
@@ -67,7 +69,10 @@ public:
 
         label_3 = new QLabel(Channelsettings);
         label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setFont(font);
+        QFont font1;
+        font1.setFamily(QString::fromUtf8("Times New Roman"));
+        font1.setPointSize(9);
+        label_3->setFont(font1);
 
         horizontalLayout->addWidget(label_3);
 
@@ -79,7 +84,7 @@ public:
 
         label_5 = new QLabel(Channelsettings);
         label_5->setObjectName(QString::fromUtf8("label_5"));
-        label_5->setFont(font);
+        label_5->setFont(font1);
 
         horizontalLayout->addWidget(label_5);
 
@@ -91,7 +96,7 @@ public:
 
         label_7 = new QLabel(Channelsettings);
         label_7->setObjectName(QString::fromUtf8("label_7"));
-        label_7->setFont(font);
+        label_7->setFont(font1);
         label_7->setTextFormat(Qt::AutoText);
 
         horizontalLayout->addWidget(label_7);
@@ -102,15 +107,23 @@ public:
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setSpacing(6);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        pushButton = new QPushButton(Channelsettings);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        QFont font2;
+        font2.setFamily(QString::fromUtf8("Agency FB"));
+        font2.setPointSize(9);
+        pushButton->setFont(font2);
+
+        horizontalLayout_2->addWidget(pushButton);
+
         horizontalSpacer = new QSpacerItem(378, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_2->addItem(horizontalSpacer);
 
-        pushButton = new QPushButton(Channelsettings);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setFont(font);
+        pushButton_2 = new QPushButton(Channelsettings);
+        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
 
-        horizontalLayout_2->addWidget(pushButton);
+        horizontalLayout_2->addWidget(pushButton_2);
 
 
         verticalLayout_2->addLayout(horizontalLayout_2);
@@ -137,6 +150,7 @@ public:
         label_6->setText(QApplication::translate("Channelsettings", "\344\273\216\347\253\231\347\274\226\345\217\267", nullptr));
         label_7->setText(QApplication::translate("Channelsettings", "1", nullptr));
         pushButton->setText(QApplication::translate("Channelsettings", "\346\267\273\345\212\240", nullptr));
+        pushButton_2->setText(QApplication::translate("Channelsettings", "\345\210\240\351\231\244", nullptr));
     } // retranslateUi
 
 };

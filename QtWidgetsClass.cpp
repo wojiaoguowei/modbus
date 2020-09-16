@@ -85,6 +85,25 @@ void QtWidgetsClass::on_pushButton_2_clicked()
 
 }
 
+void QtWidgetsClass::on_pushButton_3_clicked()
+{
+	m_pData->m_strNetPort = ui.comboBox->currentText();
+	m_pData->m_uResponseTime = ui.lineEdit->text().toUShort();
+	if (ui.radioButton->isChecked())
+	{
+		m_pData->m_bTcp = CModbusClientData::TCP_COMM;
+	}
+	else
+	{
+		m_pData->m_bTcp = CModbusClientData::UDP_COMM;
+	}
+}
+
+void QtWidgetsClass::on_pushButton_4_clicked()
+{
+
+}
+
 void QtWidgetsClass::clicked_channel(void)
 {
 	QString channelnumber = ui.tableWidget->item(ui.tableWidget->currentRow(), 0)->text();
@@ -105,10 +124,31 @@ void QtWidgetsClass::SetModbusClientPoiner(void* p)
 {
 	m_pData = (CModbusClientData*)p;
 
-	int nIndex = ui.comboBox->currentIndex();
-	if (nIndex >= 0)
+	if (m_pData->m_strNetPort.isEmpty())
 	{
-		m_pData->m_strNetPort = ui.comboBox->currentText();
+		//为空，第一次初始化
+		int nIndex = ui.comboBox->currentIndex();
+		if (nIndex >= 0)
+		{
+			m_pData->m_strNetPort = ui.comboBox->currentText();
+		}
+	}
+	else
+	{
+		if (m_pData->m_strNetPort != ui.comboBox->currentText())
+		{
+			ui.comboBox->setCurrentText(m_pData->m_strNetPort);
+		}
+	}
+
+	ui.lineEdit->setText(QString("%1").arg(m_pData->m_uResponseTime));
+	if (m_pData->m_bTcp == CModbusClientData::TCP_COMM)
+	{
+		ui.radioButton->setChecked(true);
+	}
+	else
+	{
+		ui.radioButton_2->setChecked(true);
 	}
 
 }

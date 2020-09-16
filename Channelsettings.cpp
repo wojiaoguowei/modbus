@@ -57,6 +57,12 @@ Channelsettings::~Channelsettings()
 
 void Channelsettings::on_pushButton_2_clicked()
 {
+	int currentrow = ui.tableWidget->currentRow();
+	if (currentrow < 0)
+	{
+		return;
+	}
+
 
 	ui.tableWidget->removeRow(currentrow);
 }

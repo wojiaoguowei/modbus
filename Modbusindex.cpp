@@ -22,7 +22,7 @@ Modbusindex::Modbusindex(QWidget *parent, IMainModule *pMainModule)
         m_pMainModule = pMainModule;
     }
 
-    ui.tableWidget->clear();
+    //ui.tableWidget->clear();
     ui.tableWidget->setColumnCount(2);
     QStringList headers;
     headers << "Client±àºÅ" << "Ìø×ª";
@@ -110,8 +110,9 @@ void Modbusindex::clicked_goto(void)
     std::uintptr_t i = ui.tableWidget->item(row, 0)->data(Qt::UserRole).toUInt();
     void* p = (void*)i;
 
+    QtWidgetsClass Csettings;
     Csettings.SetModbusClientPoiner(p);
-    Csettings.show();
+    Csettings.exec();
 }
 
 #include <qdebug.h>
