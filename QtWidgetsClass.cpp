@@ -102,6 +102,7 @@ void QtWidgetsClass::on_pushButton_3_clicked()
 void QtWidgetsClass::on_pushButton_4_clicked()
 {
 
+	reject();
 }
 
 void QtWidgetsClass::clicked_channel(void)
@@ -151,4 +152,6 @@ void QtWidgetsClass::SetModbusClientPoiner(void* p)
 		ui.radioButton_2->setChecked(true);
 	}
 
+
+	accept();
 }
