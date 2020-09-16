@@ -4,7 +4,7 @@
 #pragma execution_character_set("utf-8")
 
 QtWidgetsClass::QtWidgetsClass(QWidget *parent)
-	: QWidget(parent)
+	: QDialog(parent)
 {
 	ui.setupUi(this);
 
@@ -104,4 +104,11 @@ QtWidgetsClass::~QtWidgetsClass()
 void QtWidgetsClass::SetModbusClientPoiner(void* p)
 {
 	m_pData = (CModbusClientData*)p;
+
+	int nIndex = ui.comboBox->currentIndex();
+	if (nIndex >= 0)
+	{
+		m_pData->m_strNetPort = ui.comboBox->currentText();
+	}
+
 }

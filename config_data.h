@@ -78,6 +78,8 @@ public:
 
 	void SetClientName(const QString& strName);
 
+public:
+	QString m_strNetPort;
 
 private:
 	QString m_strName;	//modbus客户端名称，唯一

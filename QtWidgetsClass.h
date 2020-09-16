@@ -1,12 +1,13 @@
 #pragma once
 
 #include <QWidget>
+#include <qdialog.h>
 #include "ui_QtWidgetsClass.h"
 #include "Channelsettings.h"
 
 class CModbusClientData;
 
-class QtWidgetsClass : public QWidget
+class QtWidgetsClass : public QDialog
 {
 	Q_OBJECT
 
