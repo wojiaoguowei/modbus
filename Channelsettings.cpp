@@ -52,4 +52,10 @@ void Channelsettings::on_pushButton_clicked()
 
 Channelsettings::~Channelsettings()
 {
+
+}
+
+void Channelsettings::on_pushButton_2_clicked()
+{
+
 }
