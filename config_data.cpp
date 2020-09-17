@@ -55,3 +55,13 @@ void CModbusClientData::SetClientName(const QString& strName)
 {
 	m_strName = strName;
  }
+
+CChannelData::CChannelData()
+{
+
+}
+
+CChannelData::~CChannelData()
+{
+
+}

@@ -11,7 +11,7 @@ Channelsettings::Channelsettings(QDialog *parent)
 	ui.tableWidget->clear();
 	ui.tableWidget->setColumnCount(10);
 	QStringList headers;
-	headers << "ID" << "名称" << "消息类型（功能码）" << "循环触发时间(ms)" << "读偏移" << "读长度" << "错误码" << "写偏移" << "写长度" << "注释";
+	headers << "ID" << "名称" << "消息类型（功能码）" << "循环触发时间(ms)" << "读偏移" << "读长度" /*<< "错误码"*/ << "写偏移" << "写长度" << "注释";
 	ui.tableWidget->setHorizontalHeaderLabels(headers);
 
 	ui.tableWidget->setColumnWidth(2, 180);
@@ -34,8 +34,8 @@ void Channelsettings::on_pushButton_clicked()
 	ui.tableWidget->insertRow(rowcount);
 	QComboBox* messagetype = new QComboBox();
 	//QTextEdit* cycletime = new QTextEdit();
-	QLineEdit* cycletime = new QLineEdit();
-	ui.tableWidget->setCellWidget(rowcount, 3, cycletime);
+	//QLineEdit* cycletime = new QLineEdit();
+	//ui.tableWidget->setCellWidget(rowcount, 3, cycletime);
 	int variant[8] = { 0x01,0x02,0x03,0x04,0x05,0x06,0x0f,0x10 };
 	QString functionnumber[8] = { "读多个位（线圈）-0x01","读多个位（离散输入）-0x02","读多个位（线圈）-0x03","读多个字（输入寄存器）-0x04","写单个位（线圈）-0x05","写单个字（寄存器）-0x06","写多个位（线圈）-0x0F"
 	,"写多个字（寄存器)-0x10" };
@@ -65,4 +65,15 @@ void Channelsettings::on_pushButton_2_clicked()
 
 
 	ui.tableWidget->removeRow(currentrow);
+}
+
+void Channelsettings::on_pushButton_3_clicked()
+{
+	//确定
+	accept();
+}
+
+void Channelsettings::on_pushButton_4_clicked()
+{
+	//取消
 }

@@ -97,6 +97,18 @@ void QtWidgetsClass::on_pushButton_3_clicked()
 	{
 		m_pData->m_bTcp = CModbusClientData::UDP_COMM;
 	}
+
+	auto &devData = m_pData->getDevData();
+	for (int i = 0; i < ui.tableWidget->rowCount(); i++)
+	{
+		CDeviceData* pData = new CDeviceData();
+		
+		pData->m_unID = ui.tableWidget->item(i, 0)->text().toUInt();
+		pData->m_strDeviceName = ui.tableWidget->item(i, 1)->text();
+		pData->m_strDeviceName = ui.tableWidget->item(i, 2)->text();
+	}
+
+	accept();
 }
 
 void QtWidgetsClass::on_pushButton_4_clicked()
@@ -153,5 +165,5 @@ void QtWidgetsClass::SetModbusClientPoiner(void* p)
 	}
 
 
-	accept();
+
 }

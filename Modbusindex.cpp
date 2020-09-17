@@ -139,7 +139,6 @@ void forEach(QStandardItemModel* model, int nItemRole, QStandardItem **item, QMo
 
 void Modbusindex::Slot_station_name_modify(int nRow, int nCol)
 {
-   
     
     return;
     auto pItem = ui.tableWidget->item(nRow, nCol);
