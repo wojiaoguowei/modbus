@@ -10,7 +10,7 @@ class CModbusClientData;
 class QtWidgetsClass : public QDialog
 {
 	Q_OBJECT
-
+		enum{ID, NAME, IPADDR, SLAVEADDR, REPONSETIME, TIMEOUTCOUNT, RECONNECTINTERVAL, RESETVAR, CHANNEL};
 public:
 	QtWidgetsClass(QWidget *parent = Q_NULLPTR);
 	~QtWidgetsClass();

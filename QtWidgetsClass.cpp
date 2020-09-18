@@ -1,5 +1,6 @@
 #include "QtWidgetsClass.h"
 #include "config_data.h"
+#include "devicestudio\treeitem_def.h"
 
 #pragma execution_character_set("utf-8")
 
@@ -35,11 +36,22 @@ void QtWidgetsClass::on_pushButton_clicked()
 
 	QTableWidgetItem* Item0 = new QTableWidgetItem(QString::number(TCPClint_settingsrowcount));
 	QTableWidgetItem* Item1 = new QTableWidgetItem(QString("设备")+QString::number(TCPClint_settingsrowcount));
+	QTableWidgetItem* Item2 = new QTableWidgetItem();
+	QTableWidgetItem* Item3 = new QTableWidgetItem();
 	QTableWidgetItem* Item4 = new QTableWidgetItem(QString::number(Timeout));
+	QTableWidgetItem* Item5 = new QTableWidgetItem();
+	QTableWidgetItem* Item6 = new QTableWidgetItem();
+	QTableWidgetItem* Item7 = new QTableWidgetItem();
 
 	ui.tableWidget->setItem(TCPClint_settingsrowcount, 0, Item0);
 	ui.tableWidget->setItem(TCPClint_settingsrowcount, 1, Item1);
+	ui.tableWidget->setItem(TCPClint_settingsrowcount, 2, Item2);
+	ui.tableWidget->setItem(TCPClint_settingsrowcount, 3, Item3);
 	ui.tableWidget->setItem(TCPClint_settingsrowcount, 4, Item4);
+	ui.tableWidget->setItem(TCPClint_settingsrowcount, 5, Item5);
+	ui.tableWidget->setItem(TCPClint_settingsrowcount, 6, Item6);
+	ui.tableWidget->setItem(TCPClint_settingsrowcount, 7, Item7);
+
 
 	//判断设备号是否重复
 	   // connect(ui.tableWidget, SIGNAL(QTableWidget::cellChanged(int,int)), this, SLOT(slotItemChanged(QTableWidgetItem*)));
@@ -63,8 +75,24 @@ void QtWidgetsClass::on_pushButton_clicked()
 			ui.tableWidget->setItem(TCPClint_settingsrowcount, 1, new QTableWidgetItem(QString::number(row1 + 1)));
 
 		}
-
 	}
+
+	CDeviceData* pData = new CDeviceData();
+	pData->m_unID = ui.tableWidget->item(TCPClint_settingsrowcount, ID)->text().toUInt();
+	pData->m_strDeviceName = ui.tableWidget->item(TCPClint_settingsrowcount, NAME)->text();
+	pData->m_strIP = ui.tableWidget->item(TCPClint_settingsrowcount, IPADDR)->text();
+	pData->m_ucSlaveAddr = ui.tableWidget->item(TCPClint_settingsrowcount, SLAVEADDR)->text().toUInt();
+	pData->m_unResponseTime = ui.tableWidget->item(TCPClint_settingsrowcount, REPONSETIME)->text().toUInt();
+	pData->m_unTimeoutCount = ui.tableWidget->item(TCPClint_settingsrowcount, TIMEOUTCOUNT)->text().toUInt();
+	pData->m_unReconnectInterval = ui.tableWidget->item(TCPClint_settingsrowcount, RECONNECTINTERVAL)->text().toUInt();
+	pData->m_strResetVariable = ui.tableWidget->item(TCPClint_settingsrowcount, RESETVAR)->text().toUInt();
+
+	auto& devVec = m_pData->getDevData();
+	devVec.append(pData);
+
+	auto value = reinterpret_cast<std::uintptr_t>(pData);
+	ui.tableWidget->item(TCPClint_settingsrowcount, RESETVAR)->setData(Qt::UserRole, value);
+
 	//CS.CchannelID(ui.tableWidget->item(ui.tableWidget->currentRow(), 1)->text());
 }
 
@@ -101,11 +129,20 @@ void QtWidgetsClass::on_pushButton_3_clicked()
 	auto &devData = m_pData->getDevData();
 	for (int i = 0; i < ui.tableWidget->rowCount(); i++)
 	{
-		CDeviceData* pData = new CDeviceData();
-		
+		//CDeviceData* pData = new CDeviceData();
+		//通道的值在复位变量的userrole上
+		auto pData = (CDeviceData *)ui.tableWidget->item(i, RESETVAR)->data(Qt::UserRole).toInt();
+
 		pData->m_unID = ui.tableWidget->item(i, 0)->text().toUInt();
 		pData->m_strDeviceName = ui.tableWidget->item(i, 1)->text();
-		pData->m_strDeviceName = ui.tableWidget->item(i, 2)->text();
+		pData->m_strIP = ui.tableWidget->item(i, 2)->text();
+		pData->m_ucSlaveAddr = ui.tableWidget->item(i, 3)->text().toUInt(); 
+		pData->m_unResponseTime = ui.tableWidget->item(i, 4)->text().toUInt();
+		pData->m_unTimeoutCount = ui.tableWidget->item(i, 5)->text().toUInt();
+		pData->m_unReconnectInterval = ui.tableWidget->item(i, 6)->text().toUInt();
+		pData->m_strResetVariable = ui.tableWidget->item(i, 7)->text().toUInt();
+
+
 	}
 
 	accept();
@@ -120,6 +157,9 @@ void QtWidgetsClass::on_pushButton_4_clicked()
 void QtWidgetsClass::clicked_channel(void)
 {
 	QString channelnumber = ui.tableWidget->item(ui.tableWidget->currentRow(), 0)->text();
+
+	auto value = ui.tableWidget->item(ui.tableWidget->currentRow(), RESETVAR)->data(Qt::UserRole).toInt();
+	CDeviceData* pData = (CDeviceData*)value;
 
 	Channelsettings cs;
 	cs.CchannelID(channelnumber);

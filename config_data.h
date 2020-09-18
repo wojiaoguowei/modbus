@@ -83,7 +83,7 @@ public:
 	quint32 m_unID;
 	QString m_strDeviceName;
 	QString m_strIP;
-	quint8 m_ucSlaveAddr;
+	quint32 m_ucSlaveAddr;
 	quint32 m_unResponseTime;
 	quint32 m_unTimeoutCount;
 	quint32 m_unReconnectInterval; //链路没连接上，没隔几秒连接一次
