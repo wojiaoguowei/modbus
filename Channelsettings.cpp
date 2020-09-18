@@ -9,7 +9,7 @@ Channelsettings::Channelsettings(QDialog *parent)
 	ui.setupUi(this);
 	
 
-	//test
+	//test test
 	ui.tableWidget->clear();
 	ui.tableWidget->setColumnCount(10);
 	QStringList headers;
