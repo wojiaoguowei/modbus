@@ -204,6 +204,37 @@ void QtWidgetsClass::SetModbusClientPoiner(void* p)
 		ui.radioButton_2->setChecked(true);
 	}
 
+	//初始化界面
+	auto& devVec = m_pData->getDevData();
+	for (int i = 0; i < devVec.count(); i++)
+	{
+		int nRow = ui.tableWidget->rowCount();
+		ui.tableWidget->insertRow(nRow);
+		QPushButton* channel = new QPushButton(". . .");
+		connect(channel, SIGNAL(clicked()), SLOT(clicked_channel()));
+		ui.tableWidget->setCellWidget(nRow, 8, channel);
+
+		QTableWidgetItem* Item0 = new QTableWidgetItem(QString::number(devVec[i]->m_unID));
+		QTableWidgetItem* Item1 = new QTableWidgetItem(devVec[i]->m_strDeviceName);
+		QTableWidgetItem* Item2 = new QTableWidgetItem(devVec[i]->m_strIP);
+		QTableWidgetItem* Item3 = new QTableWidgetItem(QString::number(devVec[i]->m_ucSlaveAddr));
+		QTableWidgetItem* Item4 = new QTableWidgetItem(QString::number(devVec[i]->m_unResponseTime));
+		QTableWidgetItem* Item5 = new QTableWidgetItem(QString::number(devVec[i]->m_unTimeoutCount));
+		QTableWidgetItem* Item6 = new QTableWidgetItem(QString::number(devVec[i]->m_unReconnectInterval));
+		QTableWidgetItem* Item7 = new QTableWidgetItem(devVec[i]->m_strResetVariable);
+		auto value = reinterpret_cast<std::uintptr_t>(devVec[i]);
+		Item7->setData(Qt::UserRole, value);
+
+		ui.tableWidget->setItem(i, 0, Item0);
+		ui.tableWidget->setItem(i, 1, Item1);
+		ui.tableWidget->setItem(i, 2, Item2);
+		ui.tableWidget->setItem(i, 3, Item3);
+		ui.tableWidget->setItem(i, 4, Item4);
+		ui.tableWidget->setItem(i, 5, Item5);
+		ui.tableWidget->setItem(i, 6, Item6);
+		ui.tableWidget->setItem(i, 7, Item7);
+	}
+
 
 
 }
