@@ -106,6 +106,7 @@ void QtWidgetsClass::on_pushButton_2_clicked()
 		return;
 	}
 
+	ui.tableWidget->item(currentrow, RESETVAR)->text().toInt();
 
 	ui.tableWidget->removeRow(currentrow);
 
