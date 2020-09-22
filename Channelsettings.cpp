@@ -1,10 +1,11 @@
 #include "Channelsettings.h"
+#include "config_data.h"
 #include<qcombobox.h>
 #include<qlineedit.h>
 #include<qtextedit.h>
 
 Channelsettings::Channelsettings(QDialog *parent)
-	: QDialog(parent)
+	: QDialog(parent), m_pData(nullptr)
 {
 	ui.setupUi(this);
 	
@@ -57,6 +58,11 @@ Channelsettings::~Channelsettings()
 
 }
 
+void Channelsettings::setDeviceData(CDeviceData* pData)
+{
+	m_pData = pData;
+}
+
 void Channelsettings::on_pushButton_2_clicked()
 {
 	int currentrow = ui.tableWidget->currentRow();
@@ -71,7 +77,39 @@ void Channelsettings::on_pushButton_2_clicked()
 
 void Channelsettings::on_pushButton_3_clicked()
 {
-	//确定
+	m_pData;
+
+	auto channelVec = m_pData->getChannelVec();
+	for (int i = 0; i < ui.tableWidget->rowCount(); i++)
+	{
+		CChannelData* pData = new CChannelData();
+		//通道的值在复位变量的userrole上
+		//auto pData = (CDeviceData*)ui.tableWidget->item(i, RESETVAR)->data(Qt::UserRole).toInt();
+	}
+	//auto channelVecData = 
+
+
+	/*
+	auto& devData = m_pData->getDevData();
+	for (int i = 0; i < ui.tableWidget->rowCount(); i++)
+	{
+		//CDeviceData* pData = new CDeviceData();
+		//通道的值在复位变量的userrole上
+		auto pData = (CDeviceData*)ui.tableWidget->item(i, RESETVAR)->data(Qt::UserRole).toInt();
+
+		pData->m_unID = ui.tableWidget->item(i, 0)->text().toUInt();
+		pData->m_strDeviceName = ui.tableWidget->item(i, 1)->text();
+		pData->m_strIP = ui.tableWidget->item(i, 2)->text();
+		pData->m_ucSlaveAddr = ui.tableWidget->item(i, 3)->text().toUInt();
+		pData->m_unResponseTime = ui.tableWidget->item(i, 4)->text().toUInt();
+		pData->m_unTimeoutCount = ui.tableWidget->item(i, 5)->text().toUInt();
+		pData->m_unReconnectInterval = ui.tableWidget->item(i, 6)->text().toUInt();
+		pData->m_strResetVariable = ui.tableWidget->item(i, 7)->text().toUInt();
+
+
+	}
+	*/
+
 	accept();
 }
 

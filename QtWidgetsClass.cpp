@@ -106,7 +106,8 @@ void QtWidgetsClass::on_pushButton_2_clicked()
 		return;
 	}
 
-	ui.tableWidget->item(currentrow, RESETVAR)->text().toInt();
+	auto value = ui.tableWidget->item(currentrow, RESETVAR)->text().toInt();
+	CChannelData* pData = (CChannelData*)(value);
 
 	ui.tableWidget->removeRow(currentrow);
 
@@ -164,6 +165,7 @@ void QtWidgetsClass::clicked_channel(void)
 
 	Channelsettings cs;
 	cs.CchannelID(channelnumber);
+	cs.setDeviceData(pData);
 	//cs.show();
 	cs.exec();
 

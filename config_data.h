@@ -79,6 +79,9 @@ public:
 		return true;
 	}
 
+	QVector<CChannelData*>& getChannelVec();
+
+
 public:
 	quint32 m_unID;
 	QString m_strDeviceName;

@@ -39,6 +39,12 @@ CDeviceData::~CDeviceData()
 
 }
 
+QVector<CChannelData*>& CDeviceData::getChannelVec()
+{
+	// TODO: 在此处插入 return 语句
+	return m_vecChannel;
+}
+
 
 CModbusClientData::CModbusClientData()
 {
